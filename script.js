@@ -77,16 +77,6 @@ function playGame() {
         } else if (humanChoice.toLowerCase() === 'scissors' && computerChoice === 'rock'){
             console.log('YOU LOSE! Rock beats scissors :)');
             computerScore += 1;
-         //else if((humanChoice.toLowerCase() && computerChoice === 'rock') || (humanChoice.toLowerCase() && computerChoice === 'paper') || (humanChoice.toLowerCase() && computerChoice === 'scissors')) {
-            //console.log("A TIE! Nobody wins.")
-
-        // * THE ISSUE WITH THE ELSE IF ABOVE, LEARNED BY TRIAL AND ERROR:
-            // WHY IT BROKE:
-            // humanChoice.toLowerCase() evaluates to a truthy string (true). So (true && computerChoice === 'rock')
-            // evaluated to true whenever the computer picked rock, regardless of what the human chose (e.g. paper vs rock declared a tie).
-            //
-            // THE FIX(else if below):
-            // Compare humanChoice and computerChoice directly with strict equality (===).
 
         }else if (humanChoice.toLowerCase() === computerChoice){
             console.log("A TIE! Nobody wins.")
@@ -95,32 +85,20 @@ function playGame() {
             humanScore += 1;
         }
     }
-        // Part of step 5 but placed under for understanding / sequencing
-            // something i learned, so bascially this will only call the function once and the logic is one i do my first prompt, it wil be the same answer for all 5
-            // below is a better way to do it
-    // const humanSelection = getHumanChoice();
-    // const computerSelection = getComputerChoice(); this will be commented out
 
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Score -> You: ${humanScore} | Computer: ${computerScore}`);
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Score -> You: ${humanScore} | Computer: ${computerScore}`);
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Score -> You: ${humanScore} | Computer: ${computerScore}`);
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Score -> You: ${humanScore} | Computer: ${computerScore}`);
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Score -> You: ${humanScore} | Computer: ${computerScore}`);
+    // rock  query selector and event listener
+    const rock = document.querySelector(".rock")
+    rock.addEventListener('click', playRound)
+
+    // paper query selector and event listener
+    const paper = document.querySelector(".paper")
+    paper.addEventListener('click', playRound)
+
+    // scissors query selector and event listener
+    const scissors = document.querySelector(".scissors")
+    scissors.addEventListener('click', playRound)
+
 }
 
 
-playGame()
-
-/* just me messing around 
-
-try{
-        let human_response = window.prompt("Choose you're action!");
-    } catch(error) {
-        console.log("We couldn't get the user to prompt")
-    }
-*/
+// playGame()
