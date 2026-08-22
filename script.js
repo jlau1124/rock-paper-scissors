@@ -1,5 +1,3 @@
-// Step 2: Write the logic to get the computer choice
-
 function getComputerChoice() {
     const action = Math.floor(Math.random() * 3)
 
@@ -19,59 +17,15 @@ function getComputerChoice() {
 
     return result;
     
-    // console.log(result)
 }
-
-// Step 3: Write the logic to get the human choice
-function getHumanChoice() {
-    let response = prompt("Choose you're action!")
-    // console.log(response);
-    return response;
-}
-
-
-// Step 4: Declare the players score variables
-// let humanScore = 0;
-// let computerScore = 0;
-
-
-// Step 5: Write the logic to play a single round
-// function playRound(humanChoice, computerChoice) {
-//     // LOSER OPTIONS 
-//     console.log(`Human parameter is ${humanChoice}`)
-//     console.log(`Computer parameter is ${computerChoice}`)
-//     if (humanChoice.toLowerCase() === 'rock' && computerChoice === 'paper') {
-//         console.log("YOU LOSE! Paper beats rock :(");
-//         computerScore += 1;
-//     } else if (humanChoice.toLowerCase() === 'paper' && computerChoice === 'scissors') {
-//         console.log("YOU LOSE! Scissors beats paper :(");
-//         computerScore += 1;
-//     } else if (humanChoice.toLowerCase() === 'scissors' && computerChoice === 'rock'){
-//         console.log('YOU LOSE! Rock beats scissors :)');
-//         computerScore += 1;
-//     } else if((humanChoice.toLowerCase() && computerChoice === 'rock') || (humanChoice.toLowerCase() && computerChoice === 'paper') || (humanChoice.toLowerCase() && computerChoice === 'scissors')) {
-//         console.log("A TIE! Nobody wins.")
-//     } else {
-//         console.log("YOU WIN! Nice Job :) ");
-//         humanScore += 1;
-//     }
-// }
-
-
-// playRound(humanSelection, computerSelection)
-
-// Step 6: Write the logic to play the entire game
 
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
     const resultsDiv = document.querySelector(".round-outcome")
-    resultsDiv.style['color'] = "white";
     const score = document.querySelector(".score-board")
-    score.style['color'] = "white"
     const winner = document.querySelector(".winner-announcement")
-    winner.style['color'] = "white"
 
     // A quick helper to lock all 3 buttons
     function disableButtons() {
