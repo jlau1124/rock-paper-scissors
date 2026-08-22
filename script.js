@@ -66,28 +66,9 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    //     function playRound(humanChoice, computerChoice) {
-    //     // LOSER OPTIONS 
-    //     if (humanChoice.toLowerCase() === 'rock' && computerChoice === 'paper') {
-            
-    //         console.log("YOU LOSE! Paper beats rock :(");
-    //         computerScore += 1;
-    //     } else if (humanChoice.toLowerCase() === 'paper' && computerChoice === 'scissors') {
-    //         console.log("YOU LOSE! Scissors beats paper :(");
-    //         computerScore += 1;
-    //     } else if (humanChoice.toLowerCase() === 'scissors' && computerChoice === 'rock'){
-    //         console.log('YOU LOSE! Rock beats scissors :)');
-    //         computerScore += 1;
-
-    //     }else if (humanChoice.toLowerCase() === computerChoice){
-    //         console.log("A TIE! Nobody wins.")
-    //     } else {
-    //         console.log("YOU WIN! Nice Job :) ");
-    //         humanScore += 1;
-    //     }
-    // }
-
-    const resultsDiv = document.querySelector(".results")
+    const resultsDiv = document.querySelector(".round-outcome")
+    const score = document.querySelector(".score-board")
+    const winner = document.querySelector(".winner-announcement")
 
     function playRound(humanChoice, computerChoice) {
         // LOSER OPTIONS 
@@ -106,7 +87,16 @@ function playGame() {
             resultsDiv.textContent = "Result: YOU WIN! Nice Job :) ";
             humanScore += 1;
         }
+
+        score.textContent = `Score: Human ${humanScore} - ${computerScore} Computer`
+
+        if (humanScore === 5) {
+            winner.textContent = "🎉 Game over! You won the match!"
+        } else if (computerScore === 5) {
+            winner.textContent = "💻 Game over! The Computer reached 5 points first!"
+        }
     }
+
 
     // rock  query selector and event listener
     const rock = document.querySelector(".rock")
