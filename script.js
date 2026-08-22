@@ -67,8 +67,11 @@ function playGame() {
     let computerScore = 0;
 
     const resultsDiv = document.querySelector(".round-outcome")
+    resultsDiv.style['color'] = "white";
     const score = document.querySelector(".score-board")
+    score.style['color'] = "white"
     const winner = document.querySelector(".winner-announcement")
+    winner.style['color'] = "white"
 
     // A quick helper to lock all 3 buttons
     function disableButtons() {

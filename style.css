@@ -1,0 +1,28 @@
+body {
+    background-color: #0f172a;
+    /* outline: 2px solid blue;
+    height: 825px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+.title {
+    color: white;
+}
+
+/* .card{
+    outline: 2px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    outline: 2px solid purple;
+}
+
+.results {
+    outline: 2px solid green;
+    display: flex;
+} */
