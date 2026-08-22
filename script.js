@@ -70,6 +70,13 @@ function playGame() {
     const score = document.querySelector(".score-board")
     const winner = document.querySelector(".winner-announcement")
 
+    // A quick helper to lock all 3 buttons
+    function disableButtons() {
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
+    }
+
     function playRound(humanChoice, computerChoice) {
         // LOSER OPTIONS 
         if (humanChoice === "rock" && computerChoice === 'paper') {
@@ -92,8 +99,10 @@ function playGame() {
 
         if (humanScore === 5) {
             winner.textContent = "🎉 Game over! You won the match!"
+            disableButtons();
         } else if (computerScore === 5) {
             winner.textContent = "💻 Game over! The Computer reached 5 points first!"
+            disableButtons();
         }
     }
 
@@ -115,6 +124,8 @@ function playGame() {
     scissors.addEventListener('click', () => {
         playRound("scissors", getComputerChoice())
     })
+
+    // link helped with event listener logic, the arrow function: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 
 }
 
