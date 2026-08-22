@@ -66,39 +66,67 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-        function playRound(humanChoice, computerChoice) {
-        // LOSER OPTIONS 
-        if (humanChoice.toLowerCase() === 'rock' && computerChoice === 'paper') {
-            console.log("YOU LOSE! Paper beats rock :(");
-            computerScore += 1;
-        } else if (humanChoice.toLowerCase() === 'paper' && computerChoice === 'scissors') {
-            console.log("YOU LOSE! Scissors beats paper :(");
-            computerScore += 1;
-        } else if (humanChoice.toLowerCase() === 'scissors' && computerChoice === 'rock'){
-            console.log('YOU LOSE! Rock beats scissors :)');
-            computerScore += 1;
+    //     function playRound(humanChoice, computerChoice) {
+    //     // LOSER OPTIONS 
+    //     if (humanChoice.toLowerCase() === 'rock' && computerChoice === 'paper') {
+            
+    //         console.log("YOU LOSE! Paper beats rock :(");
+    //         computerScore += 1;
+    //     } else if (humanChoice.toLowerCase() === 'paper' && computerChoice === 'scissors') {
+    //         console.log("YOU LOSE! Scissors beats paper :(");
+    //         computerScore += 1;
+    //     } else if (humanChoice.toLowerCase() === 'scissors' && computerChoice === 'rock'){
+    //         console.log('YOU LOSE! Rock beats scissors :)');
+    //         computerScore += 1;
 
-        }else if (humanChoice.toLowerCase() === computerChoice){
-            console.log("A TIE! Nobody wins.")
+    //     }else if (humanChoice.toLowerCase() === computerChoice){
+    //         console.log("A TIE! Nobody wins.")
+    //     } else {
+    //         console.log("YOU WIN! Nice Job :) ");
+    //         humanScore += 1;
+    //     }
+    // }
+
+    const resultsDiv = document.querySelector(".results")
+
+    function playRound(humanChoice, computerChoice) {
+        // LOSER OPTIONS 
+        if (humanChoice === "rock" && computerChoice === 'paper') {
+            resultsDiv.textContent = "Result: YOU LOSE! Paper beats rock :(";
+            computerScore += 1;
+        } else if (humanChoice === "paper" && computerChoice === 'scissors') {
+            resultsDiv.textContent = " Result: YOU LOSE! Scissors beats paper :(";
+            computerScore += 1;
+        } else if (humanChoice === "scissors" && computerChoice === 'rock'){
+            resultsDiv.textContent = " Result: YOU LOSE! Rock beats scissors :)";
+            computerScore += 1;
+        }else if (humanChoice === computerChoice){
+            resultsDiv.textContent = "Result: A TIE! Nobody wins.";
         } else {
-            console.log("YOU WIN! Nice Job :) ");
+            resultsDiv.textContent = "Result: YOU WIN! Nice Job :) ";
             humanScore += 1;
         }
     }
 
     // rock  query selector and event listener
     const rock = document.querySelector(".rock")
-    rock.addEventListener('click', playRound)
+    rock.addEventListener('click', () => {
+        playRound("rock", getComputerChoice())
+    })
 
     // paper query selector and event listener
     const paper = document.querySelector(".paper")
-    paper.addEventListener('click', playRound)
+    paper.addEventListener('click', () => {
+        playRound("paper", getComputerChoice())
+    })
 
     // scissors query selector and event listener
     const scissors = document.querySelector(".scissors")
-    scissors.addEventListener('click', playRound)
+    scissors.addEventListener('click', () => {
+        playRound("scissors", getComputerChoice())
+    })
 
 }
 
 
-// playGame()
+playGame()
